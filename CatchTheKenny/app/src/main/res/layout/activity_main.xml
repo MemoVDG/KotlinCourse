@@ -5,6 +5,88 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity">
+        tools:context=".MainActivity" tools:layout_editor_absoluteY="81dp">
 
+    <TextView
+            android:text="Time: 0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtViewTime" android:textSize="24sp"
+            android:textStyle="normal|bold"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="8dp" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/gridLayout" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+    <TextView
+            android:text="Score: 0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtViewScore" android:textStyle="normal|bold"
+            android:textSize="30sp"
+            app:layout_constraintTop_toBottomOf="@+id/gridLayout" android:layout_marginBottom="15dp"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toTopOf="@+id/btnStart"
+            app:layout_constraintStart_toStartOf="parent"/>
+    <GridLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:id="@+id/gridLayout"
+            app:layout_constraintTop_toBottomOf="@+id/txtViewTime" android:layout_marginBottom="20dp"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toTopOf="@+id/txtViewScore"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" android:layout_marginEnd="8dp">
+
+        <ImageView
+                android:layout_margin="5dp"
+                android:layout_column="0"
+                android:layout_row="0"
+                android:layout_width="170dp"
+                android:layout_height="150dp"
+                app:srcCompat="@drawable/chopper"
+                android:id="@+id/choper00"
+                android:clickable="true"
+                android:onClick="increaseScore"/>
+
+        <ImageView
+                android:layout_margin="5dp"
+                android:layout_column="1"
+                android:layout_row="0"
+                android:layout_width="170dp"
+                android:layout_height="150dp"
+                android:clickable="true"
+                android:onClick="increaseScore"
+                app:srcCompat="@drawable/chopper"
+                android:id="@+id/choper10"/>
+
+        <ImageView
+                android:layout_margin="5dp"
+                android:layout_column="0"
+                android:layout_row="1"
+                android:layout_width="170dp"
+                android:layout_height="150dp"
+                app:srcCompat="@drawable/chopper"
+                android:clickable="true"
+                android:onClick="increaseScore"
+                android:id="@+id/choper01"/>
+
+        <ImageView
+                android:layout_margin="5dp"
+                android:layout_column="1"
+                android:layout_row="1"
+                android:layout_width="170dp"
+                android:layout_height="150dp"
+                android:clickable="true"
+                android:onClick="increaseScore"
+                app:srcCompat="@drawable/chopper"
+                android:id="@+id/choper11"/>
+
+    </GridLayout>
+    <Button
+            android:text="Start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnStart"
+            android:onClick="startGame"
+            app:layout_constraintStart_toStartOf="@+id/txtViewScore"
+            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginStart="12dp"
+            app:layout_constraintTop_toBottomOf="@+id/txtViewScore" android:layout_marginBottom="34dp"/>
 </android.support.constraint.ConstraintLayout>
