@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="10"
-            android:id="@+id/editText"
+            android:id="@+id/edtFirstNumber"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@+id/textView3" app:layout_constraintEnd_toEndOf="parent"
             android:hint="Introduce el primer numero"/>
@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="10"
-            android:id="@+id/editText2"
+            android:id="@+id/edtSecondNumber"
             app:layout_constraintStart_toStartOf="@+id/button3" android:layout_marginTop="27dp"
             android:layout_marginStart="1dp"
             app:layout_constraintTop_toBottomOf="@+id/button3" android:hint="Introduce el segundo numero"/>
@@ -39,40 +39,44 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/button"
-            app:layout_constraintStart_toStartOf="@+id/editText" android:layout_marginTop="19dp"
-            app:layout_constraintTop_toBottomOf="@+id/editText"/>
+            app:layout_constraintStart_toStartOf="@+id/edtFirstNumber" android:layout_marginTop="19dp"
+            app:layout_constraintTop_toBottomOf="@+id/edtFirstNumber" android:onClick="suma"/>
     <Button
             android:text="-"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/button2" android:layout_marginTop="19dp"
-            app:layout_constraintTop_toBottomOf="@+id/editText" app:layout_constraintEnd_toEndOf="@+id/editText"/>
+            app:layout_constraintTop_toBottomOf="@+id/edtFirstNumber"
+            app:layout_constraintEnd_toEndOf="@+id/edtFirstNumber"
+            android:onClick="resta"/>
     <Button
             android:text="/"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/button3"
             app:layout_constraintStart_toStartOf="@+id/button" android:layout_marginTop="17dp"
-            app:layout_constraintTop_toBottomOf="@+id/button"/>
+            app:layout_constraintTop_toBottomOf="@+id/button" android:onClick="division"/>
     <TextView
             android:text="Resultado"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textView"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="10dp"
-            app:layout_constraintTop_toBottomOf="@+id/editText2" app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="10dp" app:layout_constraintTop_toBottomOf="@+id/edtSecondNumber"/>
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textView2"
-            app:layout_constraintStart_toStartOf="@+id/textView" android:layout_marginTop="21dp"
-            app:layout_constraintTop_toBottomOf="@+id/textView" app:layout_constraintEnd_toStartOf="@+id/textView"/>
+            android:id="@+id/txtVResult"
+            app:layout_constraintStart_toStartOf="@+id/textView" android:layout_marginTop="25dp"
+            android:layout_marginStart="31dp"
+            app:layout_constraintTop_toBottomOf="@+id/textView"/>
     <Button
             android:text="*"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/button4"
             app:layout_constraintStart_toStartOf="@+id/button2" android:layout_marginTop="17dp"
-            app:layout_constraintTop_toBottomOf="@+id/button2"/>
+            app:layout_constraintTop_toBottomOf="@+id/button2" android:onClick="multiplicacion"/>
 
 </android.support.constraint.ConstraintLayout>
