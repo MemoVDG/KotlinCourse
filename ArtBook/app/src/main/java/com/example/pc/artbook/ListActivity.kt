@@ -23,12 +23,12 @@ class ListActivity : AppCompatActivity() {
 
         //Despelagmos la informacion de la BD en el listView
         try{
-            var database = this.openOrCreateDatabase("Pinturas",Context.MODE_PRIVATE,null)
-            database.execSQL("CREATE TABLE IF NOT EXISTS pinturas(name VARCHAR,images BLOB)")
+            var database = this.openOrCreateDatabase("Musicos",Context.MODE_PRIVATE,null)
+            database.execSQL("CREATE TABLE IF NOT EXISTS pinturas(name VARCHAR,image BLOB)")
             var cursor = database.rawQuery("SELECT * FROM pinturas",null)
             var indexName = cursor.getColumnIndex("name")
-            var indexImage = cursor.getColumnIndex("images")
-
+            var indexImage = cursor.getColumnIndex("image")
+            cursor.moveToFirst()
             while (cursor.moveToNext()){
                 hashMapPinturas.put(cursor.getString(indexName),cursor.getBlob(indexImage))
                 cursor.moveToNext()
@@ -39,7 +39,7 @@ class ListActivity : AppCompatActivity() {
                 Log.e("HashMap","$key = $value")
             }
         }catch (e:Exception){
-
+            e.printStackTrace()
         }
     }
 

@@ -31,29 +31,35 @@ class PhotoActivity : AppCompatActivity() {
 
 
     fun saveData(view:View){
-        if(edTPhotoName.text.isNotEmpty() && imageSelected != null){
+        if(edTPhotoName.text.isNotEmpty() && imageSelected != null) {
 
             val nameImagen = edTPhotoName.text.toString()
-            Toast.makeText(applicationContext,"No Empty",Toast.LENGTH_SHORT).show()
             //Convertimos la imagen a un tipo de formato que se pueda guardar en SQL
             val arrayImage = ByteArrayOutputStream()
-            imageSelected!!.compress(Bitmap.CompressFormat.PNG,50,arrayImage)
+            imageSelected?.compress(Bitmap.CompressFormat.PNG, 50, arrayImage)
             var byteImage = arrayImage.toByteArray()
-
-
             try{
 
                 //Creamod la BD
-                var dataBase = this.openOrCreateDatabase("Pinturas",Context.MODE_PRIVATE,null)
-                dataBase.execSQL("DROP TABLE pinturas")
-                dataBase.execSQL("CREATE TABLE IF NOT EXISTS pinturas(name VARCHAR,images BLOB)")
+                var dataBase = this.openOrCreateDatabase("Musicos",Context.MODE_PRIVATE,null)
+                dataBase.execSQL("CREATE TABLE IF NOT EXISTS pinturas(name VARCHAR,image BLOB)")
 
-                val sql = "INSERT INTO pinturas(name,images) VALUES (?,?)"
-                val statement = dataBase.compileStatement(sql)
+                val sql = "INSERT INTO pinturas(name,image) VALUES (?,?)"
+                var statement = dataBase.compileStatement(sql)
                 statement.bindString(1,nameImagen)
                 statement.bindBlob(2,byteImage)
-                statement.execute()
+                statement.executeInsert()
                 Log.e("Correct","OK")
+
+                //Checamos la BD
+                var cursor = dataBase.rawQuery("SELECT * FROM pinturas",null)
+                cursor.moveToFirst()
+                Log.e("Cursos",""+cursor.columnCount + cursor.getColumnIndex("name")+cursor.getColumnName(0))
+                while (cursor.moveToNext()){
+                    Log.e("Cursos",""+cursor.position)
+                }
+                cursor!!.close()
+
 
             }catch (e:Exception){
                 Log.e("Correct","NO OK")
@@ -62,11 +68,10 @@ class PhotoActivity : AppCompatActivity() {
         }else{
             Toast.makeText(applicationContext,"Introduce la informacion faltante",Toast.LENGTH_SHORT).show()
         }
-
+/*
         val intent = Intent(applicationContext,ListActivity::class.java)
         intent.putExtra("PhotoActivity","1")
-        startActivity(intent)
-
+        startActivity(intent)*/
     }
 
 

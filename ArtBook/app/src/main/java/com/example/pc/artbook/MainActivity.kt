@@ -24,8 +24,8 @@ class MainActivity : AppCompatActivity() {
             //--------------------Cramos e insertamos en la BD usando SQL---------------------------
             dataBase.execSQL("CREATE TABLE IF NOT EXISTS musicos (name VARCHAR, age INT(2))")
             //dataBase.execSQL("INSERT INTO musicos (name,age) VALUES ('Pedro Picapiedra',34)")
-            dataBase.execSQL("INSERT INTO musicos (name,age) VALUES ('Miguel Periño',22)")
-            dataBase.execSQL("INSERT INTO musicos (name,age) VALUES ('Jose Miguel',14)")
+            //dataBase.execSQL("INSERT INTO musicos (name,age) VALUES ('Miguel Periño',22)")
+            //dataBase.execSQL("INSERT INTO musicos (name,age) VALUES ('Jose Miguel',14)")
 
 
 
